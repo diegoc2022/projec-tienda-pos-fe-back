@@ -30,6 +30,11 @@ import { MovimientosModule } from './components/movimientos/movimientos.module';
 import { AperturaInventarioModule } from './components/apertura-inventario/apertura-inventario.module';
 import { InventarioActualModule } from './components/inventario-actual/inventario-actual.module';
 import { InventarioModule } from './components/inventario/inventario.module';
+import { MunicipioModule } from './components/municipio/municipio.module';
+import { TipoOrganizacionModule } from './components/tipo-organizacion/tipo-organizacion.module';
+import { TipoResponsabilidadModule } from './components/tipo-responsabilidad/tipo-responsabilidad.module';
+import { TipoRegimenModule } from './components/tipo-regimen/tipo-regimen.module';
+import { TipoDocumentoModule } from './components/tipo-documento/tipo-documento.module';
 dotenv.config(); // carga el archivo .env
 
 @Module({
@@ -42,7 +47,7 @@ dotenv.config(); // carga el archivo .env
       password: process.env.DB_PASSWORD,
       database: process.env.DB_NAME,
       entities: [__dirname + '/**/*.entity{.js,.ts}'],
-      synchronize: false,
+      synchronize: true,
       logging: false,
     }),
     VentasHistoricoModule,
@@ -75,7 +80,12 @@ dotenv.config(); // carga el archivo .env
     InventarioModule,
     GastosModule,
     PagosModule,
-    ComprasHistoricoModule
+    ComprasHistoricoModule,
+    TipoDocumentoModule,
+    MunicipioModule,
+    TipoOrganizacionModule,
+    TipoResponsabilidadModule,
+    TipoRegimenModule
   ],
   controllers: [
     AppController

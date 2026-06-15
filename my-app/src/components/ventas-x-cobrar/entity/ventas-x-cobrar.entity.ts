@@ -2,77 +2,73 @@ import { ClientesEntity } from "src/components/clientes/entity/clientes.entity";
 import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 
 
-@Entity({name:'tbl_ventas_x_cobrar'})
-export class VentasXCobrarEntity{
+@Entity({ name: 'tbl_ventas_x_cobrar' })
+export class VentasXCobrarEntity {
 
     @PrimaryGeneratedColumn('increment')
-    id:number; 
-    
-    @Column({ name:'codigo_cliente_v', type: 'varchar'})
-    codigo_cliente_v:string;
-    
-    @Column()
-    codigo_venta:number;
+    id: number;
+
+    @Column({ name: 'codigo_cliente_v', type: 'varchar' })
+    codigo_cliente_v: string;
 
     @Column()
-    id_caja:number;
+    codigo_venta: number;
 
     @Column()
-    id_venta:string;
+    id_caja: number;
 
     @Column()
-    codProd:string;
+    id_venta: string;
 
     @Column()
-    descripcion:string;
+    codProd: string;
 
     @Column()
-    cantidad:number;
+    descripcion: string;
 
     @Column()
-    existencia:number;
+    cantidad: number;
 
     @Column()
-    precio_compra:number;
-
-    @Column()    
-    precio_venta:number;
+    existencia: number;
 
     @Column()
-    origen_venta:string;
+    precio_compra: number;
 
     @Column()
-    subtotal:number;
+    precio_venta: number;
 
     @Column()
-    vendedor:string;
+    origen_venta: string;
 
     @Column()
-    factura:number;
-
-    @Column({default:true})
-    estado:string;
-
-    @Column({default:false})
-    venta_por_und:boolean;
+    subtotal: number;
 
     @Column()
-    estado_venta:string;
+    vendedor: string;
+
+    @Column()
+    factura: number;
+
+    @Column({ default: true })
+    estado: string;
+
+    @Column({ default: false })
+    venta_por_und: boolean;
+
+    @Column()
+    estado_venta: string;
 
     @Column({ nullable: true })
-    num_mes:number;
+    num_mes: number;
 
-   @Column({ nullable: true })
-    num_year:number;
-
-    @Column()
-    fecha_registro:string;
+    @Column({ nullable: true })
+    num_year: number;
 
     @Column()
-    hora_registro:string;
+    fecha_registro: string;
 
-    @ManyToOne(() => ClientesEntity, (cliente) => cliente.codigo_cliente_v)
-    @JoinColumn({name:'codigo_cliente_v'})   
-    codigo_cliente: ClientesEntity;
+    @Column()
+    hora_registro: string;
 
 }

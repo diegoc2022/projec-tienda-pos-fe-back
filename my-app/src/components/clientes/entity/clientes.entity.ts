@@ -1,23 +1,36 @@
 import { VentasXCobrarEntity } from "src/components/ventas-x-cobrar/entity/ventas-x-cobrar.entity";
 import { Column, Entity, OneToMany, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
 
-@Entity({name:'tbl_clientes'})
-export class ClientesEntity{
+@Entity({ name: 'tbl_clientes' })
+export class ClientesEntity {
     @PrimaryColumn()
-    codigo_cliente:string;
+    cedula: string;
 
     @Column()
-    nombre:string;
+    tipo_identificacion: number;
 
     @Column()
-    telefono:string;
+    nombre_cliente: string;
 
     @Column()
-    codigo_venta:number;
+    id_municipio: number;
 
     @Column()
-    fecha_registro:Date;
+    telefono: string;
 
-    @OneToMany(() => VentasXCobrarEntity, (venta) => venta.codigo_cliente)
-    codigo_cliente_v: VentasXCobrarEntity[];
+    @Column()
+    correo: string;
+
+    @Column()
+    tipo_organizacion: number;
+
+    @Column()
+    tipo_resposabilidad: number;
+
+    @Column()
+    tipo_regimen: number;
+
+    @Column()
+    created_at: Date;
+
 }

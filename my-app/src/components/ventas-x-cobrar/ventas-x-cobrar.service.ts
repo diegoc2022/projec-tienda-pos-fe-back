@@ -95,7 +95,7 @@ export class VentasXCobrarService {
     })
   }
 
-  async funct_actualiza_estado_ventas_s(codigo: any, id_venta: any, estado: any) {
+  /* async funct_actualiza_estado_ventas_s(codigo: any, id_venta: any, estado: any) {
     let result = await this.repository.find({
       where: {
         codigo_cliente_v: codigo,
@@ -115,5 +115,5 @@ export class VentasXCobrarService {
         msg: 'Error en validaciones previas'
       }
     }
-  }
+  } */
 }
