@@ -1,37 +1,61 @@
 import { Body, Controller, Delete, Get, Param, Patch, Post } from '@nestjs/common';
 import { PrecioVentasService } from './venta-producto.service';
-import { EditaPreciosDto } from 'src/components/venta-producto/dto/edita-precios.dto';
+import { EditaProductoDto } from 'src/components/venta-producto/dto/edita-precios.dto';
 
 @Controller('venta-producto')
 export class PrecioVentasController {
     constructor(
-        private ventasServices:PrecioVentasService, 
-    ){}
+        private ventasServices: PrecioVentasService,
+    ) { }
 
     @Get(':id')
-   async retornaProductos(@Param('id') id:string){                 
+    async retornaProductos(@Param('id') id: string) {
         return await this.ventasServices.retornaPrecioVentas(id);
     }
 
     @Get()
-   async retornaAllCompras(){                 
+    async retornaAllCompras() {
         return await this.ventasServices.retornaAllPrecioventas();
     }
 
+    @Patch('precioVentas/:cod')
+    async funct_edita_precio_ventas_c(@Param('cod') cod: string, @Body() precio: EditaProductoDto) {
+        return await this.ventasServices.funct_edita_precio_ventas_s(cod, precio);
+    }
 
-    @Patch(':cod')
-    async functEditaVentas(@Param('cod') cod:string, @Body() updateVerntaProductos:EditaPreciosDto){    
-        return await this.ventasServices.editaPrecioVenta(cod,updateVerntaProductos);
-    } 
-  
     @Post()
-    async createProducto(@Body() data: any){            
-        return await this.ventasServices.createProducto(data);
+    async creatfunct_registra_productos_c(@Body() data: any) {
+        return await this.ventasServices.funct_registra_productos_s(data);
     }
 
     @Delete(':cod')
-    async funct_elimina_productos_c(@Param('cod') cod:any){            
+    async funct_elimina_productos_c(@Param('cod') cod: any) {
         return await this.ventasServices.funct_elimina_producto_s(cod)
+    }
+
+    @Patch('precioCompras/:id')
+    async functedita_precio_compra_c(@Param('id') id: any, @Body() precio: EditaProductoDto) {
+        return await this.ventasServices.funct_edita_precio_compras_s(id, precio);
+    }
+
+    @Patch('producto/:id')
+    async funct_edita_nombre_producto_c(@Param('id') id: any, @Body() data: EditaProductoDto) {
+        return await this.ventasServices.funct_edita_nombre_producto_s(id, data);
+    }
+
+    @Patch('activar/:id')
+    async funct_activa_asociacion_unidad(@Param('id') id: any, @Body() check: EditaProductoDto) {
+        return await this.ventasServices.funct_activa_asociacion_unidad(id, check);
+    }
+
+    @Patch('cantidad/:id')
+    async funct_edita_existencia_c(@Param('id') id: any, @Body() cant: EditaProductoDto) {
+        return await this.ventasServices.funct_edita_existencia_s(id, cant);
+    }
+
+    @Patch('codigo/:id')
+    async funct_edita_producto_c(@Param('id') id: string, @Body() codigo: EditaProductoDto) {
+        return await this.ventasServices.funct_edita_codigo_nombre_producto_s(id, codigo);
     }
 
 }

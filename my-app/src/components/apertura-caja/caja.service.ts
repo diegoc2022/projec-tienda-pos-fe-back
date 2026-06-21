@@ -27,8 +27,6 @@ export class CajaService {
     return await this.cajaRepository.save(caja);
   }
 
-
-
   async funct_retorna_apertura_caja_s(user: string): Promise<CreateCajaEntity> {
     const result = await this.cajaRepository.findOne({
       where: {

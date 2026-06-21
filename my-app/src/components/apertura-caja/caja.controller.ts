@@ -19,5 +19,4 @@ export class CajaController {
         return await this.cajaService.funct_retorna_apertura_caja_s(user);
     }
 
-
 }

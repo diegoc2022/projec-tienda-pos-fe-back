@@ -4,11 +4,9 @@ import { ComprasHistoricoModule } from './components/compras-historico/compras-h
 import { VentasHistoricoModule } from './components/ventas-historico/ventashistorico.module';
 import { ComprasFacturasModule } from './components/compras-facturas/compras-facturas.module';
 import { ComprasModule } from './components/compras/compras.module';
-import { AjustesVariosModule } from './components/ajustes-varios/ajustes-varios.module';
 import { CajaModule } from './components/apertura-caja/caja.module';
 import { IdSecuenciaModule } from './components/secuencia-factura/id-secuencia.module';
 import { VinculosModule } from './components/viculos/vinculos.module';
-import { CloseVentasModule } from './components/close-ventas/close-ventas.module';
 import { EncabezadoModule } from './components/encabezado-fact/encabezado.module';
 import { VentasProductosModule } from './components/ventas-temp/ventas_productos.module';
 import { ProveedoresModule } from './components/proveedores/proveedores.module';
@@ -21,7 +19,7 @@ import { DataSource } from 'typeorm';
 import * as dotenv from 'dotenv';
 import { ProductosModule } from './components/productos/productos.module';
 import { PrecioVentasModule } from './components/venta-producto/venta-producto.module';
-import { ClientesModule } from './components/clientes/clientes.module';
+import { ClientesModule } from './components/clientes-fe/clientes-fe.module';
 import { VentasXCobrarModule } from './components/ventas-x-cobrar/ventas-x-cobrar.module';
 import { NominaModule } from './components/nomina/nomina.module';
 import { MenuModule } from './components/menu/menu.module';
@@ -35,6 +33,8 @@ import { TipoOrganizacionModule } from './components/tipo-organizacion/tipo-orga
 import { TipoResponsabilidadModule } from './components/tipo-responsabilidad/tipo-responsabilidad.module';
 import { TipoRegimenModule } from './components/tipo-regimen/tipo-regimen.module';
 import { TipoDocumentoModule } from './components/tipo-documento/tipo-documento.module';
+import { CategoriaProductoModule } from './components/categoria-producto/categoria-producto.module';
+import { ImpuestosModule } from './components/impuestos/impuestos.module';
 dotenv.config(); // carga el archivo .env
 
 @Module({
@@ -53,10 +53,8 @@ dotenv.config(); // carga el archivo .env
     VentasHistoricoModule,
     ComprasFacturasModule,
     ComprasModule,
-    AjustesVariosModule,
     CajaModule,
     VinculosModule,
-    CloseVentasModule,
     EncabezadoModule,
     EmpleadosModule,
     ProductosModule,
@@ -85,7 +83,9 @@ dotenv.config(); // carga el archivo .env
     MunicipioModule,
     TipoOrganizacionModule,
     TipoResponsabilidadModule,
-    TipoRegimenModule
+    TipoRegimenModule,
+    CategoriaProductoModule,
+    ImpuestosModule
   ],
   controllers: [
     AppController

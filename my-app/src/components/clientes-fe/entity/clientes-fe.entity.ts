@@ -1,8 +1,8 @@
-import { VentasXCobrarEntity } from "src/components/ventas-x-cobrar/entity/ventas-x-cobrar.entity";
-import { Column, Entity, OneToMany, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
 
-@Entity({ name: 'tbl_clientes' })
-export class ClientesEntity {
+import { Column, Entity, PrimaryColumn } from "typeorm";
+
+@Entity({ name: 'tbl_clientes_fe' })
+export class ClientesFeEntity {
     @PrimaryColumn()
     cedula: string;
 

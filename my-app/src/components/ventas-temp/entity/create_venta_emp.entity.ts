@@ -1,24 +1,12 @@
-
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
-
-@Entity({ name: 'tbl_ventas_x_cobrar' })
-export class VentasXCobrarEntity {
-
+@Entity({ name: 'tbl_ventas_temp' })
+export class CreateVentasEmpEntity {
     @PrimaryGeneratedColumn('increment')
     id: number;
 
-    @Column({ name: 'codigo_cliente_v', type: 'varchar' })
-    codigo_cliente_v: string;
-
-    @Column()
-    codigo_venta: number;
-
     @Column()
     id_caja: number;
-
-    @Column()
-    id_venta: string;
 
     @Column()
     codProd: string;
@@ -39,7 +27,10 @@ export class VentasXCobrarEntity {
     precio_venta: number;
 
     @Column()
-    origen_venta: string;
+    iva: number;
+
+    @Column()
+    total_iva: number;
 
     @Column()
     subtotal: number;
@@ -48,27 +39,21 @@ export class VentasXCobrarEntity {
     vendedor: string;
 
     @Column()
+    sucursal: number
+
+    @Column()
     factura: number;
-
-    @Column({ default: true })
-    estado: string;
-
-    @Column({ default: false })
-    venta_por_und: boolean;
 
     @Column()
     estado_venta: string;
 
-    @Column({ nullable: true })
+    @Column({ type: 'varchar', nullable: true })
     num_mes: number;
 
-    @Column({ nullable: true })
+    @Column({ type: 'varchar', nullable: true })
     num_year: number;
 
     @Column()
-    fecha_registro: string;
-
-    @Column()
-    hora_registro: string;
+    fecha_registro: Date;
 
 }

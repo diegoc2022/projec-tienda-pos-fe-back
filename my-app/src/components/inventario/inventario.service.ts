@@ -8,7 +8,10 @@ import { MovimientosEntity } from '../movimientos/entity/movimientos.entity';
 import { CreateInventarioDto } from './dto/create-inventario';
 import { InventariosEntity } from './entity/inventario.entity';
 import { InventarioActualService } from '../inventario-actual/inventario-actual.service';
-import { AjustesVariosService } from '../ajustes-varios/ajustes-varios.service';
+import { VentasProductosService } from '../ventas-temp/ventas_productos.service';
+import { PrecioVentasService } from '../venta-producto/venta-producto.service';
+import { EditaProductoDto } from '../venta-producto/dto/edita-precios.dto';
+
 
 
 @Injectable()
@@ -22,11 +25,10 @@ export class InventarioService {
     private inventario: Repository<InventariosEntity>,
 
     private inv_actual: InventarioActualService,
-    private ajustes: AjustesVariosService,
     private readonly dataSource: DataSource,
   ) { }
 
-  async funct_registra_inventarios_s(data: CreateInventarioDto) {
+  async funct_registra_inventarios_s(data: any) {
     // INSERTAMOS EN LA TABLA INVENTARIO
     const result = await this.inventario.save(data);
     if (result) {
@@ -39,9 +41,9 @@ export class InventarioService {
       })
 
       // ACTUALIZAMOS EN LA TABLA VENTA PRODUCTO
-      this.ajustes.funct_edita_existencia_s(data.codprod, {
-        existencia: data.stock_despues
-      })
+      /*  this.venta_prod.funct_edita_existencia_s({data.codProd}, {
+         existencia: data.stock_despues
+       }) */
     }
     return result;
   }
@@ -80,7 +82,6 @@ export class InventarioService {
             precio_venta: item.precio_venta,
             existencia: stockDespues,
             iva: item.iva,
-            icui: item.icui,
             utilidad: item.utilidad,
             updated_at: fecha,
             activo: true
