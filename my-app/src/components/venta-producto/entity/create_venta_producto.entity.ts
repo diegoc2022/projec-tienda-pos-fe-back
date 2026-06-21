@@ -1,5 +1,4 @@
 
-import { InventariosEntity } from "src/components/inventario/entity/inventario.entity";
 import { VinculosEntity } from "src/components/viculos/entity/create-vinculos.entity";
 import { Column, Entity, OneToMany, PrimaryColumn, UpdateDateColumn } from "typeorm";
 
