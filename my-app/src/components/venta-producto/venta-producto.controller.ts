@@ -9,8 +9,8 @@ export class PrecioVentasController {
     ) { }
 
     @Get(':id')
-    async retornaProductos(@Param('id') id: string) {
-        return await this.ventasServices.retornaPrecioVentas(id);
+    async retorna_producto_por_id_c(@Param('id') id: string) {
+        return await this.ventasServices.retorna_producto_por_id_s(id);
     }
 
     @Get()
@@ -20,13 +20,13 @@ export class PrecioVentasController {
 
 
     @Patch(':cod')
-    async functEditaVentas(@Param('cod') cod: string, @Body() updateVerntaProductos: EditaProdutoDto) {
-        return await this.ventasServices.editaPrecioVenta(cod, updateVerntaProductos);
+    async funct_edita_precio_ventas_c(@Param('cod') cod: string, @Body() data: EditaProductoDto) {
+        return await this.ventasServices.funct_edita_precio_ventas_s(cod, data);
     }
 
     @Post()
-    async createProducto(@Body() data: any) {
-        return await this.ventasServices.createProducto(data);
+    async funct_registra_productos_c(@Body() data: any) {
+        return await this.ventasServices.funct_registra_productos_s(data);
     }
 
     @Delete(':cod')

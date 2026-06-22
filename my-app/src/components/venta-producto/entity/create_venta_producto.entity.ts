@@ -17,20 +17,18 @@ export class VentaProductoEntity {
     @Column({ nullable: false })
     precio_venta: number;
 
+
     @Column({ nullable: false })
     existencia: number;
-
-    @Column({ nullable: false })
-    codigo_clasific: number;
-
-    @Column({ nullable: false })
-    codigo_proveed: number;
 
     @Column({ nullable: true })
     iva: number;
 
     @Column({ nullable: true })
-    icui: number
+    utilidad: number;
+
+    @Column({ nullable: false })
+    id_categoria: number;
 
     @Column({ nullable: true })
     id_proveedor: number;
