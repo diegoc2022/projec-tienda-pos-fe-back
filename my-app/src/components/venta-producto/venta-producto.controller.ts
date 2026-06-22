@@ -9,8 +9,8 @@ export class PrecioVentasController {
     ) { }
 
     @Get(':id')
-    async funt_retorna_productos_por_id_c(@Param('id') id: string) {
-        return await this.ventasServices.funt_retorna_productos_por_id_s(id);
+    async retornaProductos(@Param('id') id: string) {
+        return await this.ventasServices.retornaPrecioVentas(id);
     }
 
     @Get()

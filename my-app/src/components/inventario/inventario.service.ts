@@ -5,13 +5,8 @@ import { VentaProductoEntity } from '../venta-producto/entity/create_venta_produ
 import { format } from 'date-fns';
 import { DataSource } from 'typeorm';
 import { MovimientosEntity } from '../movimientos/entity/movimientos.entity';
-import { CreateInventarioDto } from './dto/create-inventario';
 import { InventariosEntity } from './entity/inventario.entity';
 import { InventarioActualService } from '../inventario-actual/inventario-actual.service';
-import { VentasProductosService } from '../ventas-temp/ventas_productos.service';
-import { PrecioVentasService } from '../venta-producto/venta-producto.service';
-import { EditaProductoDto } from '../venta-producto/dto/edita-precios.dto';
-
 
 
 @Injectable()
@@ -82,7 +77,7 @@ export class InventarioService {
             precio_venta: item.precio_venta,
             existencia: stockDespues,
             iva: item.iva,
-            utilidad: item.utilidad,
+            //utilidad: item.utilidad,
             updated_at: fecha,
             activo: true
           }
