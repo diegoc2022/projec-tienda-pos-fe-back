@@ -80,7 +80,7 @@ export class InventarioService {
             precio_venta: item.precio_venta,
             existencia: stockDespues,
             iva: item.iva,
-            icui: item.icui,
+            //icui: item.icui,
             utilidad: item.utilidad,
             updated_at: fecha,
             activo: true

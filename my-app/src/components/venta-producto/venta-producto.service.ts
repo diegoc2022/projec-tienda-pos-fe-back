@@ -20,7 +20,7 @@ export class PrecioVentasService {
         })
     }
 
-    async retornaAllPrecioventas(): Promise<VentaProductoEntity[]> {
+    async funct_retorna_productos_s(): Promise<VentaProductoEntity[]> {
         return await this.ventasRepository.find();
     }
 

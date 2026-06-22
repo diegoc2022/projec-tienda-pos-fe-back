@@ -1,63 +1,58 @@
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
-@Entity({name:'tbl_ventas_temp'})
-export class VentasProductosEntity{
+@Entity({ name: 'tbl_ventas_temp' })
+export class VentasProductosEntity {
     @PrimaryGeneratedColumn('increment')
-    id:number;
+    id: number;
 
     @Column()
-    id_caja:number
+    id_caja: number
 
     @Column()
-    id_venta:string
+    codProd: string;
 
     @Column()
-    codProd:string;
+    descripcion: string;
 
     @Column()
-    descripcion:string;
+    cantidad: number;
 
     @Column()
-    cantidad:number;
+    existencia: number;
 
     @Column()
-    existencia:number;
+    precio_compra: number;
 
     @Column()
-    precio_compra:number;
+    precio_venta: number;
 
-    @Column()    
-    precio_venta:number;
 
     @Column()
-    origen_venta:string;
+    subtotal: number;
 
     @Column()
-    subtotal:number;
+    vendedor: string;
 
     @Column()
-    vendedor:string;
+    factura: number;
 
-    @Column()
-    factura:number;
+    @Column({ default: true })
+    estado: string;
 
-    @Column({default:true})
-    estado:string;
-
-    @Column({default:false})
-    venta_por_und:boolean;
+    @Column({ default: false })
+    venta_por_und: boolean;
 
     @Column({ type: 'varchar', nullable: true })
-    num_mes:number;
+    num_mes: number;
 
-   @Column({ type: 'varchar', nullable: true })
-    num_year:number;
-
-    @Column()
-    fecha_registro:string;
+    @Column({ type: 'varchar', nullable: true })
+    num_year: number;
 
     @Column()
-    hora_registro:string;
+    fecha_registro: string;
+
+    @Column()
+    hora_registro: string;
 
 
 

@@ -47,7 +47,7 @@ dotenv.config(); // carga el archivo .env
       password: process.env.DB_PASSWORD,
       database: process.env.DB_NAME,
       entities: [__dirname + '/**/*.entity{.js,.ts}'],
-      synchronize: true,
+      synchronize: false,
       logging: false,
     }),
     VentasHistoricoModule,
