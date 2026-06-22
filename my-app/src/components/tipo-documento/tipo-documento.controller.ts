@@ -2,7 +2,7 @@ import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/commo
 import { TipoIdentificacionService } from './tipo-documento.service';
 import { CreateTipoDocumentoDto } from './dto/create-tipo-identificacion.dto';
 
-@Controller('tipo-identificacion')
+@Controller('tipo-documento')
 export class TipoDocumentoController {
   constructor(private readonly tipoIdentificacionService: TipoIdentificacionService) { }
 

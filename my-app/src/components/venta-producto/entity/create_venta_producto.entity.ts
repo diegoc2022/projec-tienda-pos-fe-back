@@ -21,16 +21,19 @@ export class VentaProductoEntity {
     existencia: number;
 
     @Column({ nullable: false })
-    id_categoria: number;
+    codigo_clasific: number;
 
     @Column({ nullable: false })
-    id_proveedor: number;
+    codigo_proveed: number;
 
     @Column({ nullable: true })
     iva: number;
 
     @Column({ nullable: true })
-    utilidad: number
+    icui: number
+
+    @Column({ nullable: true })
+    id_proveedor: number;
 
     @Column({ default: false })
     venta_por_und: boolean;
@@ -39,7 +42,7 @@ export class VentaProductoEntity {
     activo: boolean;
 
     @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
-    createAt: Date
+    createAt: Date;
 
     @UpdateDateColumn({ type: 'timestamp without time zone' })
     updated_at: Date;

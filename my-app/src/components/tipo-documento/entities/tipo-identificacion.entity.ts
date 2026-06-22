@@ -1,6 +1,6 @@
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
-@Entity({ name: 'tbl_tipo_identificacion' })
+@Entity({ name: 'tbl_tipo_documento' })
 export class TipoDocumento {
     @PrimaryGeneratedColumn('increment')
     id: number;

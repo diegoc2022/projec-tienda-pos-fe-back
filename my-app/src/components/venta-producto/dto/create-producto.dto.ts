@@ -1,4 +1,3 @@
-
 export class CreateProductoDto {
     codProd: string;
     descripcion: string;

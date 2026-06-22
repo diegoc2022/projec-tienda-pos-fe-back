@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { ClientesEntity } from './entity/clientes.entity';
+import { ClientesFeEntity } from './entity/clientes-fe.entity';
 import { Repository } from 'typeorm';
-import { ClientesDto } from './dto/clientes.dto';
+import { ClientesFeDto } from './dto/clientes.dto';
 import { format } from 'date-fns';
 
 
@@ -10,15 +10,17 @@ import { format } from 'date-fns';
 export class ClientesService {
     fecha_actual: Date = new Date();
     constructor(
-        @InjectRepository(ClientesEntity)
-        private repository: Repository<ClientesEntity>
+        @InjectRepository(ClientesFeEntity)
+        private repository: Repository<ClientesFeEntity>
     ) { }
 
-    async funct_registra_clientes_s(data: ClientesDto) {
+    async funct_registra_clientes_s(data: any) {
+        console.log("Data: ", data);
+
         const fecha = format(this.fecha_actual, 'yyyy-MM-dd HH:mm');
         const result = await this.repository.find({
             where: {
-                cedula: data.cedula
+                cedula: data.ident
             }
         })
 
@@ -29,15 +31,15 @@ export class ClientesService {
             }
         } else {
             return this.repository.save({
-                cedula: data.cedula,
-                tipo_identificacion: data.tipo_identificacion,
-                nombre_cliente: data.nombre_cliente.toUpperCase(),
-                id_municipio: data.id_municipio,
-                telefono: data.telefono,
+                cedula: data.ident,
+                tipo_identificacion: data.tipo_ident,
+                nombre_cliente: data.nombre.toUpperCase(),
+                id_municipio: data.munic,
+                telefono: data.telef,
                 correo: data.correo,
-                tipo_organizacion: data.tipo_organizacion,
-                tipo_resposabilidad: data.tipo_resposabilidad,
-                tipo_regimen: data.tipo_regimen,
+                tipo_organizacion: data.tipo_org,
+                tipo_resposabilidad: data.tipo_resp,
+                tipo_regimen: data.tipo_reg,
                 created_at: fecha
             });
         }

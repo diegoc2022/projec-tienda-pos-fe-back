@@ -9,7 +9,7 @@ export class InventarioController {
     ) { }
 
     @Post()
-    async funct_registra_inventario_c(@Body() data: CreateInventarioDto) {
+    async funct_registra_inventario_c(@Body() data: any) {
         this.inventarioService.funct_registra_inventarios_s(data);
     }
 

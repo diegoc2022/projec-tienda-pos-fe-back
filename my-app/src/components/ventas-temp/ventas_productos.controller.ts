@@ -1,7 +1,7 @@
 
-import { Body, Controller, Delete, Get, Param, ParseIntPipe, Patch, Post, Put } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Patch, Post, Put } from '@nestjs/common';
 import { VentasProductosService } from './ventas_productos.service';
-import { CreateVentaProductosDto } from './dto/create_venta_productos.dto';
+
 import { UpdateVentaProductosDto } from 'src/components/ventas-temp/dto/update_ventas.dto';
 
 @Controller('ventas-temp')
@@ -11,9 +11,9 @@ export class VentasProductosController {
   ) { }
 
   @Post()
-  async functRegistraVentas(@Body() dataventa: CreateVentaProductosDto[]) {
+  async funct_registra_ventas_c(@Body() dataventa: any[]) {
     try {
-      return await this.ventaservice.functRegistraVentasService(dataventa);
+      return await this.ventaservice.funct_registra_ventas_s(dataventa);
     } catch (error) {
       console.log("error: ", error);
       return error;
@@ -36,8 +36,8 @@ export class VentasProductosController {
   }
 
   @Patch(':id/:cod')
-  async functEditaVentas(@Param('id') id: number, @Param('cod') cod: string, @Body() updateVerntaProductos: UpdateVentaProductosDto) {
-    return await this.ventaservice.functEditaVentasService(id, cod, updateVerntaProductos);
+  async funct_edita_ventas_c(@Param('id') id: number, @Param('cod') cod: string, @Body() data: UpdateVentaProductosDto) {
+    return await this.ventaservice.funct_edita_cantidad_ventas_s(id, cod, data);
   }
 
   @Delete('item/:id/:cod')
@@ -53,6 +53,11 @@ export class VentasProductosController {
   @Delete('ventas-temp/eliminar-todo')
   async funt_elimina_ventas_temporal_c() {
     return await this.ventaservice.funt_elima_ventas_temporal_s();
+  }
+
+  @Put()
+  funct_close_ventas_c(@Body() data: any) {
+    return this.ventaservice.funct_close_ventas_s(data);
   }
 
 }

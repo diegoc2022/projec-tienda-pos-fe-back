@@ -1,15 +1,15 @@
 import { Body, Controller, Get, Param, Patch, Post } from '@nestjs/common';
-import { ClientesService } from './clientes.service';
-import { ClientesDto } from './dto/clientes.dto';
+import { ClientesService } from './clientes-fe.service';
+import { ClientesFeDto } from './dto/clientes.dto';
 
-@Controller('clientes')
+@Controller('clientes-fe')
 export class ClientesController {
     constructor(
         private service: ClientesService
     ) { }
 
     @Post()
-    async funct_registra_clientes_c(@Body() data: ClientesDto) {
+    async funct_registra_clientes_c(@Body() data: any) {
         return await this.service.funct_registra_clientes_s(data);
     }
 

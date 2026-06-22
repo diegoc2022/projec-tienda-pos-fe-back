@@ -1,4 +1,4 @@
-export class ClientesDto {
+export class ClientesFeDto {
     cedula: string;
     tipo_identificacion: number;
     nombre_cliente: string;
