@@ -12,7 +12,7 @@ export class PrecioVentasService {
         private ventasRepository: Repository<VentaProductoEntity>
     ) { }
 
-    async retornaPrecioVentas(id: string): Promise<VentaProductoEntity> {
+    async funt_retorna_productos_por_id_s(id: string): Promise<VentaProductoEntity> {
         console.log("Precio: ", id);
 
         return await this.ventasRepository.findOne({
@@ -22,7 +22,7 @@ export class PrecioVentasService {
         })
     }
 
-    async retornaAllPrecioventas(): Promise<VentaProductoEntity[]> {
+    async funct_retorna_productos_s(): Promise<VentaProductoEntity[]> {
         return await this.ventasRepository.find();
     }
 
@@ -74,7 +74,6 @@ export class PrecioVentasService {
         if (!producto) {
             throw new NotFoundException(`Producto con código ${id} no encontrado`);
         }
-
         //const total_unds = producto.existencia + cant.existencia; 
         producto.precio_venta = precio.precio_venta
         producto.updated_at = new Date();
@@ -161,7 +160,6 @@ export class PrecioVentasService {
         if (!producto) {
             throw new NotFoundException(`Producto con código ${id} no encontrado`);
         }
-
         producto.codProd = codigo.codProd;
         producto.descripcion = codigo.descripcion;
         producto.updated_at = new Date();
