@@ -47,10 +47,10 @@ export class CreateVentasEmpEntity {
     @Column()
     estado_venta: string;
 
-    @Column({ type: 'varchar', nullable: true })
+    @Column()
     num_mes: number;
 
-    @Column({ type: 'varchar', nullable: true })
+    @Column()
     num_year: number;
 
     @Column()

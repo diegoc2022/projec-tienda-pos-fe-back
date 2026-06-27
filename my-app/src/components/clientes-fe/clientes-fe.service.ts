@@ -15,12 +15,10 @@ export class ClientesService {
     ) { }
 
     async funct_registra_clientes_s(data: any) {
-        console.log("Data: ", data);
-
         const fecha = format(this.fecha_actual, 'yyyy-MM-dd HH:mm');
         const result = await this.repository.find({
             where: {
-                cedula: data.ident
+                ident: data.ident
             }
         })
 
@@ -31,7 +29,7 @@ export class ClientesService {
             }
         } else {
             return this.repository.save({
-                cedula: data.ident,
+                ident: data.ident,
                 tipo_identificacion: data.tipo_ident,
                 nombre_cliente: data.nombre.toUpperCase(),
                 id_municipio: data.munic,
@@ -52,11 +50,20 @@ export class ClientesService {
 
 
     async funct_retorna_one_cliente_s(data: any) {
-        return await this.repository.find({
+        const result = await this.repository.find({
             where: {
-                cedula: data
+                ident: data
             }
         })
+
+        if (result.length < 1) {
+            return {
+                status: 409,
+                msg: 'Cliente no existe, debe crearlo primero por el formulario de clientes'
+            }
+        }
+
+        return result;
     }
 
 }

@@ -35,6 +35,7 @@ import { TipoRegimenModule } from './components/tipo-regimen/tipo-regimen.module
 import { TipoDocumentoModule } from './components/tipo-documento/tipo-documento.module';
 import { CategoriaProductoModule } from './components/categoria-producto/categoria-producto.module';
 import { ImpuestosModule } from './components/impuestos/impuestos.module';
+import { FormaDePagoModule } from './components/forma-de-pago/forma-de-pago.module';
 dotenv.config(); // carga el archivo .env
 
 @Module({
@@ -85,7 +86,8 @@ dotenv.config(); // carga el archivo .env
     TipoResponsabilidadModule,
     TipoRegimenModule,
     CategoriaProductoModule,
-    ImpuestosModule
+    ImpuestosModule,
+    FormaDePagoModule
   ],
   controllers: [
     AppController

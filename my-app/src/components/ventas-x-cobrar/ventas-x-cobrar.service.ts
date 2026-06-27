@@ -4,7 +4,7 @@ import { VentasXCobrarEntity } from './entity/ventas-x-cobrar.entity';
 import { DataSource, Repository } from 'typeorm';
 import { VentasXCobrarDto } from './dto/ventas-x-cobrar.dto';
 import { format } from 'date-fns';
-import { formatearFechaDDMMYYYY, extraerSoloFecha } from '../../utils/date-formatter';
+
 
 @Injectable()
 export class VentasXCobrarService {

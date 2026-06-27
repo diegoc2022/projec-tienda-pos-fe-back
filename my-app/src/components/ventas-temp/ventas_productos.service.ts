@@ -3,12 +3,13 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { UpdateVentaProductosDto } from 'src/components/ventas-temp/dto/update_ventas.dto';
 import { Repository } from 'typeorm';
 import { CreateVentasEmpEntity } from './entity/create_venta_emp.entity';
-
+import { format } from 'date-fns';
 
 
 @Injectable()
 export class VentasProductosService {
-  data_venta: any[] = [];
+  fecha_actual = new Date();
+
   constructor(
     @InjectRepository(CreateVentasEmpEntity)
     private ventasRepository: Repository<CreateVentasEmpEntity>
@@ -25,6 +26,8 @@ export class VentasProductosService {
   }
 
   async funct_registra_ventas_s(ventaProducto: any[]) {
+    const mes = format(this.fecha_actual, 'M');
+    const year = format(this.fecha_actual, 'yyyy');
     const [data] = ventaProducto[0].data;
     const subTotal = data.precio_venta * 1;
     const total_iva = data.precio_venta * data.iva / 100;
@@ -44,8 +47,8 @@ export class VentasProductosService {
       sucursal: 1,
       factura: ventaProducto[0].factura,
       estado_venta: 'Abierto',
-      num_mes: 6,
-      num_year: 2026,
+      num_mes: parseInt(mes),
+      num_year: parseInt(year),
       fecha_registro: new Date()
     });
     return await this.ventasRepository.save(create_v);
@@ -86,7 +89,7 @@ export class VentasProductosService {
 
   async funct_close_ventas_s(data: any[]) {
     return await data.map(resp => {
-      this.ventasRepository.update({ id: resp.id }, { estado_venta: 'cerrado' });
+      this.ventasRepository.update({ id: resp.id }, { estado_venta: 'Cerrado' });
     })
   }
 

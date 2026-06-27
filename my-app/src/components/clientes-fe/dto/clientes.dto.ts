@@ -1,5 +1,5 @@
 export class ClientesFeDto {
-    cedula: string;
+    ident: string;
     tipo_identificacion: number;
     nombre_cliente: string;
     id_municipio: number;

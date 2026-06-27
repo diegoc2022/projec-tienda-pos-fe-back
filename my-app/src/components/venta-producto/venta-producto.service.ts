@@ -13,7 +13,6 @@ export class PrecioVentasService {
     ) { }
 
     async retornaPrecioVentas(id: string): Promise<VentaProductoEntity> {
-        console.log("Precio: ", id);
 
         return await this.ventasRepository.findOne({
             where: {

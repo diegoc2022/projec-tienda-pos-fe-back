@@ -4,7 +4,7 @@ import { Column, Entity, PrimaryColumn } from "typeorm";
 @Entity({ name: 'tbl_clientes_fe' })
 export class ClientesFeEntity {
     @PrimaryColumn()
-    cedula: string;
+    ident: string;
 
     @Column()
     tipo_identificacion: number;

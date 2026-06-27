@@ -27,7 +27,7 @@ export class VentaProductoEntity {
     @Column({ nullable: true })
     utilidad: number;
 
-    @Column({ nullable: false })
+    @Column({ nullable: true })
     id_categoria: number;
 
     @Column({ nullable: true })
