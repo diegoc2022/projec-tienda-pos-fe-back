@@ -15,10 +15,8 @@ export class IdSecuenciaService {
         private readonly dataSource: DataSource
     ) { }
 
-    async funct_genera_factura_s(body: IdSecuenciaFactDto) {
-        const { numero_factura } = body[0]
+    async funct_genera_factura_s(body: any) {
         const queryRunner = this.dataSource.createQueryRunner();
-
         await queryRunner.connect();
         await queryRunner.startTransaction();
 
@@ -37,7 +35,7 @@ export class IdSecuenciaService {
             }
 
             // 2️⃣ Cálculos
-            let numeroFactura = Number(numero_factura)
+            let numeroFactura = Number(body.num_secuencia)
             const consecutivoFactura = secuencia.consecutivo_autorizado;
             const consecutivoDisponible = consecutivoFactura - numeroFactura;
 

@@ -12,8 +12,8 @@ export class FormaDePagoController {
   }
 
   @Get()
-  findAll() {
-    return this.formaDePagoService.findAll();
+  funct_retorna_forma_de_pago_c() {
+    return this.formaDePagoService.funct_retorna_forma_de_pago_s();
   }
 
 }

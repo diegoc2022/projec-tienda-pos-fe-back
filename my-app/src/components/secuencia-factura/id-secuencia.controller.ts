@@ -1,9 +1,6 @@
 
 import { Body, Controller, Get, Param, Post, Put } from '@nestjs/common';
 import { IdSecuenciaService } from './id-secuencia.service';
-import { IdSecuenciaFactDto } from './dto/id-secuencia.dto';
-
-
 
 @Controller('secuencia')
 export class IdSecuenciaController {
@@ -12,7 +9,7 @@ export class IdSecuenciaController {
   ) { }
 
   @Put()
-  funct_genera_factura_c(@Body() body: IdSecuenciaFactDto) {
+  funct_genera_factura_c(@Body() body: any) {
     return this.secuenciaService.funct_genera_factura_s(body)
   }
 

@@ -9,9 +9,10 @@ export class FacturarFeService {
     private ventas_tem: VentasProductosService
   ) { }
 
-  async funct_generate_factura_fe_s(id: any) {
+  async funct_generate_factura_fe_s(data: any) {
+    console.log("Data: ", data);
 
-    const ventas = await this.ventas_tem.funt_retorna_ventas_facturas(id);
+    const ventas = await this.ventas_tem.funt_retorna_ventas_facturas(data);
 
     if (!ventas) {
       return

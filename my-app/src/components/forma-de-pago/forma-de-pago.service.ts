@@ -4,7 +4,6 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { FormaDePago } from './entities/forma-de-pago.entity';
 import { Repository } from 'typeorm';
 
-
 @Injectable()
 export class FormaDePagoService {
 
@@ -12,13 +11,13 @@ export class FormaDePagoService {
     @InjectRepository(FormaDePago)
     private repository: Repository<FormaDePago>
   ) { }
-
   create(createFormaDePagoDto: CreateFormaDePagoDto) {
     return 'This action adds a new formaDePago';
   }
 
-  async findAll() {
+  async funct_retorna_forma_de_pago_s() {
     return await this.repository.find();
   }
+
 
 }

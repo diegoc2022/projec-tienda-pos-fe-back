@@ -36,6 +36,8 @@ import { TipoDocumentoModule } from './components/tipo-documento/tipo-documento.
 import { CategoriaProductoModule } from './components/categoria-producto/categoria-producto.module';
 import { ImpuestosModule } from './components/impuestos/impuestos.module';
 import { FormaDePagoModule } from './components/forma-de-pago/forma-de-pago.module';
+import { MedioDePago } from './components/medio-de-pago/entities/medio-de-pago.entity';
+import { MedioDePagoModule } from './components/medio-de-pago/medio-de-pago.module';
 dotenv.config(); // carga el archivo .env
 
 @Module({
@@ -87,7 +89,8 @@ dotenv.config(); // carga el archivo .env
     TipoRegimenModule,
     CategoriaProductoModule,
     ImpuestosModule,
-    FormaDePagoModule
+    FormaDePagoModule,
+    MedioDePagoModule
   ],
   controllers: [
     AppController
