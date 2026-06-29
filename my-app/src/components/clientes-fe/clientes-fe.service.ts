@@ -2,7 +2,6 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { ClientesFeEntity } from './entity/clientes-fe.entity';
 import { Repository } from 'typeorm';
-import { ClientesFeDto } from './dto/clientes.dto';
 import { format } from 'date-fns';
 
 
@@ -34,10 +33,11 @@ export class ClientesService {
                 nombre_cliente: data.nombre.toUpperCase(),
                 id_municipio: data.munic,
                 telefono: data.telef,
-                correo: data.correo,
+                correo: data.correo.toLowerCase(),
                 tipo_organizacion: data.tipo_org,
-                tipo_resposabilidad: data.tipo_resp,
+                tipo_responsabilidad: data.tipo_resp,
                 tipo_regimen: data.tipo_reg,
+                direccion: data.dir.toUpperCase(),
                 created_at: fecha
             });
         }

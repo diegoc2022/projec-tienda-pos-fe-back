@@ -8,7 +8,8 @@ export class CreateVentaEmpDto {
     precio_venta: number;
     iva: number;
     total_iva: number;
-    subtotal: number;
+    total_sin_iva: number;
+    total_neto: number;
     vendedor: string;
     estado_venta: string;
     factura: number;

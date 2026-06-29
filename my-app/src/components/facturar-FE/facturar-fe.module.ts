@@ -3,14 +3,15 @@ import { FacturarFeService } from './facturar-fe.service';
 import { FacturarFeController } from './facturar-fe.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { FacturarFe } from './entities/facturar-fe.entity';
-import { VentasProductosService } from '../ventas-temp/ventas_productos.service';
-import { VentaProductoEntity } from '../venta-producto/entity/create_venta_producto.entity';
+import { HttpModule } from '@nestjs/axios';
+
 
 @Module({
   imports: [
-    TypeOrmModule.forFeature([FacturarFe, VentaProductoEntity]
-    )],
+    TypeOrmModule.forFeature([FacturarFe]),
+    HttpModule
+  ],
   controllers: [FacturarFeController],
-  providers: [FacturarFeService, VentasProductosService],
+  providers: [FacturarFeService],
 })
 export class FacturarFeModule { }

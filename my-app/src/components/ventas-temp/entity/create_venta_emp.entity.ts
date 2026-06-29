@@ -33,7 +33,10 @@ export class CreateVentasEmpEntity {
     total_iva: number;
 
     @Column()
-    subtotal: number;
+    total_sin_iva: number;
+
+    @Column()
+    total_neto: number;
 
     @Column()
     vendedor: string;

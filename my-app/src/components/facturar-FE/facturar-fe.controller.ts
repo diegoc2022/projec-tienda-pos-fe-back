@@ -8,7 +8,7 @@ export class FacturarFeController {
   constructor(private readonly facturarFeService: FacturarFeService) { }
 
   @Post()
-  funct_generate_factura_fe_c(@Body() createFacturarFeDto: CreateInvoiceDto) {
+  funct_generate_factura_fe_c(@Body() createFacturarFeDto: any[]) {
     return this.facturarFeService.funct_generate_factura_fe_s(createFacturarFeDto);
   }
 

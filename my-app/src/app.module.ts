@@ -38,6 +38,7 @@ import { ImpuestosModule } from './components/impuestos/impuestos.module';
 import { FormaDePagoModule } from './components/forma-de-pago/forma-de-pago.module';
 import { MedioDePago } from './components/medio-de-pago/entities/medio-de-pago.entity';
 import { MedioDePagoModule } from './components/medio-de-pago/medio-de-pago.module';
+import { FacturarFeModule } from './components/facturar-FE/facturar-fe.module';
 dotenv.config(); // carga el archivo .env
 
 @Module({
@@ -90,7 +91,8 @@ dotenv.config(); // carga el archivo .env
     CategoriaProductoModule,
     ImpuestosModule,
     FormaDePagoModule,
-    MedioDePagoModule
+    MedioDePagoModule,
+    FacturarFeModule
   ],
   controllers: [
     AppController

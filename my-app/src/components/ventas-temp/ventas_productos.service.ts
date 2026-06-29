@@ -29,9 +29,9 @@ export class VentasProductosService {
     const mes = format(this.fecha_actual, 'M');
     const year = format(this.fecha_actual, 'yyyy');
     const [data] = ventaProducto[0].data;
-    const subTotal = data.precio_venta * 1;
+    const total_sin_iva = data.precio_venta * 1;
     const total_iva = data.precio_venta * data.iva / 100;
-    const totalNeto = subTotal + total_iva;
+    const totalcon_iva = total_sin_iva + total_iva;
     const create_v = this.ventasRepository.create({
       id_caja: ventaProducto[0].id_caja,
       codProd: data.codProd,
@@ -42,7 +42,8 @@ export class VentasProductosService {
       precio_venta: data.precio_venta,
       iva: data.iva,
       total_iva: total_iva,
-      subtotal: totalNeto,
+      total_sin_iva: total_sin_iva,
+      total_neto: totalcon_iva,
       vendedor: ventaProducto[0].user,
       sucursal: 1,
       factura: ventaProducto[0].factura,
@@ -55,13 +56,14 @@ export class VentasProductosService {
   }
 
   async funct_edita_cantidad_ventas_s(id: number, cod: string, data: UpdateVentaProductosDto) {
-    const subTotal = data.precio_venta * data.cantidad;
-    const totalIva = subTotal * data.iva / 100;
-    const totalNeto = subTotal + totalIva
+    const total_sin_iva = data.precio_venta * data.cantidad;
+    const totalIva = total_sin_iva * data.iva / 100;
+    const total_con_iva = total_sin_iva + totalIva
     return await this.ventasRepository.update({ id: id, codProd: cod }, {
       cantidad: data.cantidad,
       total_iva: totalIva,
-      subtotal: totalNeto
+      total_sin_iva: total_sin_iva,
+      total_neto: total_con_iva
     });
   }
 

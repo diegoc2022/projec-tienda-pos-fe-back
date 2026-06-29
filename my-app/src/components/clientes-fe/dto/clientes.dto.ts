@@ -6,7 +6,8 @@ export class ClientesFeDto {
     telefono: string;
     correo: string;
     tipo_organizacion: number;
-    tipo_resposabilidad: number;
+    tipo_responsabilidad: number;
     tipo_regimen: number;
+    direccion: string;
     created_at: Date
 }

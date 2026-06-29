@@ -6,7 +6,7 @@ export class FormaDePago {
     @PrimaryGeneratedColumn('increment')
     id: number;
 
-    @Column()
+    @Column({ nullable: true })
     nombre: string
 
     @Column()

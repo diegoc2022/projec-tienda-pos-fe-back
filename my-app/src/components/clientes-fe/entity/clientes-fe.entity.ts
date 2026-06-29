@@ -25,10 +25,13 @@ export class ClientesFeEntity {
     tipo_organizacion: number;
 
     @Column()
-    tipo_resposabilidad: number;
+    tipo_responsabilidad: number;
 
     @Column()
     tipo_regimen: number;
+
+    @Column()
+    direccion: string;
 
     @Column()
     created_at: Date;
